@@ -1,8 +1,7 @@
 
 BambuData.txt
 data.json
-node_modules/*
-package-lock.json
+node_modules/
 .DS_Store
 config.json
 note.json
