@@ -1,20 +1,14 @@
 //-------------------------------------------------------------------------------------------------------------
 /// Configure your settings here:
-const config = require('./config.json');
-
-const httpPort = process.env.BAMBUBOARD_HTTP_PORT || config.BambuBoard_httpPort; // Checks for HTTP_PORT in environment variables, if not found uses config.httpPort
-const printerURL = process.env.BAMBUBOARD_PRINTER_URL || config.BambuBoard_printerURL; // Checks for PRINTER_URL in environment variables, if not found uses config.printerURL
-const printerPort = process.env.BAMBUBOARD_PRINTER_PORT || config.BambuBoard_printerPort; // Checks for PRINTER_PORT in environment variables, if not found uses config.printerPort
-const printerSN = process.env.BAMBUBOARD_PRINTER_SN || config.BambuBoard_printerSN; // Checks for PRINTER_SN in environment variables, if not found uses config.printerSN
-const printerAccessCode = process.env.BAMBUBOARD_PRINTER_ACCESS_CODE || config.BambuBoard_printerAccessCode; // Checks for PRINTER_ACCESS_CODE in environment variables, if not found uses config.printerAccessCode
-const bambuUsername = process.env.BAMBUBOARD_BAMBU_USERNAME || config.BambuBoard_bambuUsername; // Checks for BAMBU_USERNAME in environment variables, if not found uses config.bambuUsername
-const bambuPassword = process.env.BAMBUBOARD_BAMBU_PASSWORD || config.BambuBoard_bambuPassword; // Checks for BAMBU_PASSWORD in environment variables, if not found uses config.bambuPassword
-const tempSetting = process.env.BAMBUBOARD_TEMP_SETTING || config.BambuBoard_tempSetting; // Checks to see how you want your temp displayed 
-
-//-------------------------------------------------------------------------------------------------------------
-
-// Enable if you want to see console log events
-const consoleLogging = false;
+const httpPort = process.env.BAMBUBOARD_HTTP_PORT;
+const printerURL = process.env.BAMBUBOARD_PRINTER_URL;
+const printerPort = process.env.BAMBUBOARD_PRINTER_PORT;
+const printerSN = process.env.BAMBUBOARD_PRINTER_SN;
+const printerAccessCode = process.env.BAMBUBOARD_PRINTER_ACCESS_CODE;
+const bambuUsername = process.env.BAMBUBOARD_BAMBU_USERNAME;
+const bambuPassword = process.env.BAMBUBOARD_BAMBU_PASSWORD;
+const tempSetting = process.env.BAMBUBOARD_TEMP_SETTING;
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 //-------------------------------------------------------------------------------------------------------------
 
@@ -375,8 +369,7 @@ function convertUtc(timestampUtcMs) {
 }
 
 function log(logText) {
-  if(consoleLogging)
-  {
+  if (isDevelopment) {
     console.log(logText);
   }
 }
