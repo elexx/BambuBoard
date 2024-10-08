@@ -4,7 +4,7 @@ ARG NODE_VERSION=iron
 
 FROM node:${NODE_VERSION}-alpine
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
